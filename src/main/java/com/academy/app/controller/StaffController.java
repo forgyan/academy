@@ -28,7 +28,7 @@ public class StaffController {
 	@Value("${BASE.URL}")
 	private String baseUrl;
 	
-	@PostMapping(value = "/add")
+	@PostMapping(value = "/addStaffType")
 	public String test2(@RequestBody StaffType staffType, Model model) {
 		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+"/staff/", staffType, ResponseEntity.class);
 
@@ -37,7 +37,7 @@ public class StaffController {
 		return "admin/admin-staff-type";
 	}
 	
-	@RequestMapping(value = "/getAll")
+	@RequestMapping(value = "/getStaffType")
 	@ResponseBody
 	public List<StaffType> all() {
 		List<StaffType> response = restTemplate.getForObject(baseUrl+"/", List.class);

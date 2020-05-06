@@ -5,7 +5,7 @@ app.controller("staffTypeController", ['$scope', '$http', function($scope, $http
 	$scope.getStaffType = function(){
 		 var post = $http({
              method: "GET",
-             url: "/academy/staff/getAll",
+             url: "/academy/staff/getStaffType",
              dataType: 'json',
              data: { 
             	 id :0,
@@ -73,7 +73,7 @@ app.controller("staffTypeController", ['$scope', '$http', function($scope, $http
 	$scope.addStaff = function(){
 		 var post = $http({
              method: "POST",
-             url: "/academy/staff/add",
+             url: "/academy/staff/addStaffType",
              dataType: 'json',
              data: { 
             	 id :0,
