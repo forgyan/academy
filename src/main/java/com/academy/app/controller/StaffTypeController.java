@@ -20,7 +20,7 @@ import com.academy.app.entity.StaffType;
 
 @Controller
 @RequestMapping("/staff")
-public class StaffController {
+public class StaffTypeController {
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -28,11 +28,14 @@ public class StaffController {
 	@Value("${BASE.URL}")
 	private String baseUrl;
 	
+	@Value("${STAFF.TYPE.URL}")
+	private String wsUrl;
+	
 	@PostMapping(value = "/addStaffType")
 	public String test2(@RequestBody StaffType staffType, Model model) {
-		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+"/staff/", staffType, ResponseEntity.class);
+		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+wsUrl, staffType, ResponseEntity.class);
 
-		List<StaffType> staffList = restTemplate.getForObject(baseUrl+"/", List.class);
+		List<StaffType> staffList = restTemplate.getForObject(baseUrl+wsUrl, List.class);
 		model.addAttribute("staffTypeList", staffList);
 		return "admin/admin-staff-type";
 	}
@@ -40,7 +43,7 @@ public class StaffController {
 	@RequestMapping(value = "/getStaffType")
 	@ResponseBody
 	public List<StaffType> all() {
-		List<StaffType> response = restTemplate.getForObject(baseUrl+"/", List.class);
+		List<StaffType> response = restTemplate.getForObject(baseUrl+wsUrl, List.class);
 		return response;
 	}
 	
