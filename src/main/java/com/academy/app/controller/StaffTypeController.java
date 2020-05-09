@@ -29,13 +29,13 @@ public class StaffTypeController {
 	private String baseUrl;
 	
 	@Value("${STAFF.TYPE.URL}")
-	private String wsUrl;
+	private String staffTypeUrl;
 	
 	@PostMapping(value = "/addStaffType")
 	public String test2(@RequestBody StaffType staffType, Model model) {
-		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+wsUrl, staffType, ResponseEntity.class);
+		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+staffTypeUrl, staffType, ResponseEntity.class);
 
-		List<StaffType> staffList = restTemplate.getForObject(baseUrl+wsUrl, List.class);
+		List<StaffType> staffList = restTemplate.getForObject(baseUrl+staffTypeUrl, List.class);
 		model.addAttribute("staffTypeList", staffList);
 		return "admin/admin-staff-type";
 	}
@@ -43,7 +43,7 @@ public class StaffTypeController {
 	@RequestMapping(value = "/getStaffType")
 	@ResponseBody
 	public List<StaffType> all() {
-		List<StaffType> response = restTemplate.getForObject(baseUrl+wsUrl, List.class);
+		List<StaffType> response = restTemplate.getForObject(baseUrl+staffTypeUrl, List.class);
 		return response;
 	}
 	

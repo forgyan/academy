@@ -21,6 +21,9 @@ public class AdminController {
 	@Value("${BASE.URL}")
 	private String baseUrl;
 	
+	@Value("${STAFF.TYPE.URL}")
+	private String staffTypeUrl;
+	
 	@RequestMapping("/")
 	public String admin() {
 		return "admin/admin-home";
@@ -28,7 +31,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/staffType")
 	public String all(Model model) {
-		List<StaffType> response = restTemplate.getForObject(baseUrl+"/", List.class);
+		List<StaffType> response = restTemplate.getForObject(baseUrl+staffTypeUrl+"/", List.class);
 		model.addAttribute("staffTypeList", response);
 		return "admin/admin-staff-type";
 	}
