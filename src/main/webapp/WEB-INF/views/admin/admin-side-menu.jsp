@@ -15,12 +15,12 @@
 									</header> -->
 									<ul>
 										<li><a href="/academy">Home</a></li>
-										<li><a href="/achool-web-design/admin">Admin Home</a></li>
-										<li><a href="/My-Wakil/admin-home">Academic Year</a></li>
-										<li><a href="/My-Wakil/admin-home">Academic Unit</a></li>
-										<li><a href="/My-Wakil/admin-home">Staff Type</a></li>
-										<li><a href="/My-Wakil/admin-home">Staff Grade</a></li>
-										<li><a href="/My-Wakil/admin-home">Subjects</a></li>
+										<li><a href="/academy/admin/">Admin Home</a></li>
+										<li><a href="/academy/admin/academicYear">Academic Year</a></li>
+										<li><a href="/academy/admin/academicUnit">Academic Unit</a></li>
+										<li><a href="/academy/admin/staffType">Staff Type</a></li>
+										<li><a href="/academy/admin/staffBand">Staff Grade</a></li>
+										<li><a href="/academy/admin/subject">Subjects</a></li>
 										
 										
 									</ul>

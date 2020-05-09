@@ -1,11 +1,11 @@
-var app = angular.module("staffType",[]);
+var app = angular.module("academicUnit",[]);
 
-app.controller("staffTypeController", ['$scope', '$http', function($scope, $http){
+app.controller("academicUnitController", ['$scope', '$http', function($scope, $http){
 	
-	$scope.getStaffType = function(){
+	$scope.getAcademicUnit = function(){
 		 var post = $http({
              method: "GET",
-             url: "/academy/staffType/getAll",
+             url: "/academy/academicUnit/getAll",
              dataType: 'json',
              data: { 
             	 id :0,
@@ -53,7 +53,8 @@ app.controller("staffTypeController", ['$scope', '$http', function($scope, $http
 			    			 $('#exampleTbl').DataTable()
 				 	 		   .row
 				 	 		   .add([ '<td >'+i+'</td>', 
-				 	 		         '<td >'+value.staffType+'</td>',
+				 	 		         '<td >'+value.academicUnitKey+'</td>',
+				 	 		         '<td >'+value.academicUnitValue+'</td>',
 				 	 		       	 '<td>'+edit+'&nbsp;|&nbsp;'+delet+'</td>'
 		    	 		         
 				 	 		        ])
@@ -69,22 +70,24 @@ app.controller("staffTypeController", ['$scope', '$http', function($scope, $http
 		
 	}
 	
-	$scope.getStaffType();
-	$scope.addStaff = function(){
+	$scope.getAcademicUnit();
+	
+	$scope.addAcademicUnit = function(){
 		 var post = $http({
              method: "POST",
-             url: "/academy/staffType/add",
+             url: "/academy/academicUnit/add",
              dataType: 'json',
              data: { 
             	 id :0,
-            	 staffType : $scope.staffType
+            	 academicUnitKey : $scope.academicUnitKey,
+            	 academicUnitValue : $scope.academicUnitValue
 				 },
              headers: { "Content-Type": "application/json" }
          });
 		 
 		 post.success(function (data, status) {
-			 $scope.getStaffType();
-			 $scope.staffType="";
+			 $scope.getAcademicUnit();
+			 $scope.academicYear="";
 		 });
 
          post.error(function (data, status) {

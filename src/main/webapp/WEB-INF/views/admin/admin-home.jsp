@@ -34,13 +34,13 @@
 										<article>
 										<!-- 	<a href="javaintro.php" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
 											<ul class="actions">
-												<li><a href="javaintro.php" class="button"> Academic Year</a></li>
+												<li><a href="/academy/admin/academicYear" class="button"> Academic Year</a></li>
 											</ul>
 										</article>
 										<article>
 											<!-- <a href="elements.html" class="image"><img src="images/pic02.jpg" alt="" /></a> -->
 											<ul class="actions">
-												<li><a href="#" class="button">Academic Unit</a></li>
+												<li><a href="/academy/admin/academicUnit" class="button">Academic Unit</a></li>
 											</ul>
 										</article>
 									</div>
@@ -54,7 +54,7 @@
 										<article>
 										<!-- 	<a href="elements.html" class="image"><img src="images/pic02.jpg" alt="" /></a> -->
 											<ul class="actions">
-												<li><a href="#" class="button">Staff Grade</a></li>
+												<li><a href="/academy/admin/staffBand" class="button">Staff Grade</a></li>
 											</ul>
 										</article>
 									</div>
@@ -62,16 +62,11 @@
 										<article>
 											<!-- <a href="elements.html" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
 											<ul class="actions">
-												<li><a href="#" class="button">Subjects</a></li>
+												<li><a href="/academy/admin/subject" class="button">Subjects</a></li>
 											</ul>
 										</article>
 
-										<article>
-											<!-- <a href="elements.html" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
-											<ul class="actions">
-												<li><a href="scienceintro.php" class="button">Science & Research</a></li>
-											</ul>
-										</article>
+										
 									</div>
 							</section>
 								

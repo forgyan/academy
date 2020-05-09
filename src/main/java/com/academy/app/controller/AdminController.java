@@ -1,15 +1,10 @@
 package com.academy.app.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
-
-import com.academy.app.entity.StaffType;
 
 @Controller
 @RequestMapping("/admin")
@@ -30,9 +25,27 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/staffType")
-	public String all(Model model) {
-		List<StaffType> response = restTemplate.getForObject(baseUrl+staffTypeUrl+"/", List.class);
-		model.addAttribute("staffTypeList", response);
+	public String staffType() {
 		return "admin/admin-staff-type";
+	}
+
+	@RequestMapping(value = "/staffBand")
+	public String staffBand() {
+		return "admin/admin-staff-band";
+	}
+
+	@RequestMapping(value = "/academicYear")
+	public String academicYear() {
+		return "admin/admin-academic-year";
+	}
+
+	@RequestMapping(value = "/academicUnit")
+	public String academicUnit() {
+		return "admin/admin-academic-unit";
+	}
+
+	@RequestMapping(value = "/subject")
+	public String subject() {
+		return "admin/admin-subject";
 	}
 }
