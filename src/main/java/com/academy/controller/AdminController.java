@@ -1,4 +1,4 @@
-package com.academy.app.controller;
+package com.academy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

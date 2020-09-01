@@ -1,4 +1,4 @@
-package com.academy.app.controller;
+package com.academy.controller;
 
 import java.util.List;
 
@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import com.academy.app.entity.Subjects;
+import com.academy.app.entity.StaffBand;
+import com.academy.app.entity.StaffType;
 
 @Controller
-@RequestMapping("/subjects")
-public class SubjectController {
+@RequestMapping("/staffBand")
+public class StaffBandController {
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -25,29 +26,25 @@ public class SubjectController {
 	@Value("${BASE.URL}")
 	private String baseUrl;
 	
-	@Value("${SUBJECTS.URL}")
+	@Value("${STAFF.BAND.URL}")
 	private String restUrl;
 	
 	@PostMapping(value = "/add")
-	public String add(@RequestBody Subjects subjects, Model model) {
-		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+restUrl, subjects, ResponseEntity.class);
+	public String add(@RequestBody StaffBand staffBand, Model model) {
+		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+restUrl, staffBand, ResponseEntity.class);
 
-		List<Subjects> staffList = restTemplate.getForObject(baseUrl+restUrl, List.class);
+		List<StaffType> staffList = restTemplate.getForObject(baseUrl+restUrl, List.class);
 		model.addAttribute("staffTypeList", staffList);
-		return "admin/admin-staff-type";
+		return "admin/admin-staff-band";
 	}
 	
 	@RequestMapping(value = "/getAll")
 	@ResponseBody
-	public List<Subjects> getAll() {
-		List<Subjects> response = restTemplate.getForObject(baseUrl+restUrl, List.class);
+	public List<StaffType> getAll() {
+		List<StaffType> response = restTemplate.getForObject(baseUrl+restUrl, List.class);
 		return response;
 	}
 	
-
-
-
-
 
 
 }

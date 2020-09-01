@@ -1,4 +1,4 @@
-package com.academy.app.controller;
+package com.academy.controller;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import com.academy.app.entity.AcademicYears;;
+import com.academy.app.entity.AcademicUnit;
 
 @Controller
-@RequestMapping("/academicYear")
-public class AcademicYearController {
+@RequestMapping("/academicUnit")
+public class AcademicUnitController {
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -25,25 +25,27 @@ public class AcademicYearController {
 	@Value("${BASE.URL}")
 	private String baseUrl;
 	
-	@Value("${ACADEMIC.YEARS.URL}")
+	@Value("${ACADEMIC.UNIT.URL}")
 	private String restUrl;
 	
 	@PostMapping(value = "/add")
-	public String add(@RequestBody AcademicYears academicYears, Model model) {
-		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+restUrl, academicYears, ResponseEntity.class);
+	public String add(@RequestBody AcademicUnit academicUnit, Model model) {
+		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+restUrl, academicUnit, ResponseEntity.class);
 
-		List<AcademicYears> staffList = restTemplate.getForObject(baseUrl+restUrl, List.class);
+		List<AcademicUnit> staffList = restTemplate.getForObject(baseUrl+restUrl, List.class);
 		model.addAttribute("staffTypeList", staffList);
 		return "admin/admin-staff-type";
 	}
 	
 	@RequestMapping(value = "/getAll")
 	@ResponseBody
-	public List<AcademicYears> getAll() {
-		List<AcademicYears> response = restTemplate.getForObject(baseUrl+restUrl, List.class);
+	public List<AcademicUnit> getAll() {
+		List<AcademicUnit> response = restTemplate.getForObject(baseUrl+restUrl, List.class);
 		return response;
 	}
 	
+
+
 
 
 }

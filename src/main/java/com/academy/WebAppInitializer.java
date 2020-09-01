@@ -1,4 +1,4 @@
-package com.academy.app.config;
+package com.academy;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

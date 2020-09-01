@@ -1,4 +1,4 @@
-package com.academy.app.config;
+package com.academy;
 
 import java.util.List;
 

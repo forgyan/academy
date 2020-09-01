@@ -1,4 +1,4 @@
-package com.academy.app.controller;
+package com.academy.controller;
 
 import java.util.List;
 
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import com.academy.app.entity.AcademicUnit;
+import com.academy.app.entity.Subjects;
 
 @Controller
-@RequestMapping("/academicUnit")
-public class AcademicUnitController {
+@RequestMapping("/subjects")
+public class SubjectController {
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -25,25 +25,27 @@ public class AcademicUnitController {
 	@Value("${BASE.URL}")
 	private String baseUrl;
 	
-	@Value("${ACADEMIC.UNIT.URL}")
+	@Value("${SUBJECTS.URL}")
 	private String restUrl;
 	
 	@PostMapping(value = "/add")
-	public String add(@RequestBody AcademicUnit academicUnit, Model model) {
-		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+restUrl, academicUnit, ResponseEntity.class);
+	public String add(@RequestBody Subjects subjects, Model model) {
+		ResponseEntity<Void> response = restTemplate.postForObject(baseUrl+restUrl, subjects, ResponseEntity.class);
 
-		List<AcademicUnit> staffList = restTemplate.getForObject(baseUrl+restUrl, List.class);
+		List<Subjects> staffList = restTemplate.getForObject(baseUrl+restUrl, List.class);
 		model.addAttribute("staffTypeList", staffList);
 		return "admin/admin-staff-type";
 	}
 	
 	@RequestMapping(value = "/getAll")
 	@ResponseBody
-	public List<AcademicUnit> getAll() {
-		List<AcademicUnit> response = restTemplate.getForObject(baseUrl+restUrl, List.class);
+	public List<Subjects> getAll() {
+		List<Subjects> response = restTemplate.getForObject(baseUrl+restUrl, List.class);
 		return response;
 	}
 	
+
+
 
 
 
